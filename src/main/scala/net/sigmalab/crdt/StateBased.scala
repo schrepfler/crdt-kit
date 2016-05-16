@@ -9,5 +9,5 @@ trait StateBased[ThisType, ValueType] {
 
   def merge(other: ThisType): ThisType
 
-  def value(implicit monoid: CommutativeMonoid[ValueType]): ValueType
+  def value(implicit commutativeMonoid: CommutativeMonoid[ValueType]): ValueType
 }
