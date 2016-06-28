@@ -7,6 +7,6 @@ import algebra.CommutativeMonoid
   */
 trait Counter[@specialized(Int, Long, Float, Double) N] {
 
-  def increment(amt: N): Counter[N]
+  def increment(amt: N)(commutativeMonoid: CommutativeMonoid[N]): Counter[N]
 
 }
