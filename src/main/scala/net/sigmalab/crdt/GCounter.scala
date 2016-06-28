@@ -1,16 +1,10 @@
 package net.sigmalab.crdt
 
-import algebra.CommutativeMonoid
-
 /**
   * Created by schrepfler on 01/05/2016.
   */
-trait GCounter[Id, ThisType, Elt] extends Counter[Elt] with StateBased[ThisType, Elt] {
+trait GCounter[Id, @specialized(Int, Long, Float, Double) N] extends Counter[N] with StateBased[N, Map[Id, N]] {
 
-  def increment(amt: Elt)(implicit commutativeMonoid: CommutativeMonoid[Elt]): ThisType
-
-  def value(implicit commutativeMonoid: CommutativeMonoid[Elt]): Elt
-
-  def merge(other: ThisType): ThisType
+  def value: N
 
 }
