@@ -9,7 +9,7 @@ object GCounterImpl {
   /**
     * Created by schrepfler on 01/05/2016.
     */
-  case class GCounterImpl[@specialized(Int, Long, Float, Double) N:Order:CommutativeMonoid](shardId: UUID = io.jvm.uuid.UUID.randomUUID(), payload: Map[UUID, N] = Map[UUID, N]()) extends GCounter[UUID, N] {
+  case class GCounterImpl[@specialized(Int, Long, Float, Double) N](shardId: UUID = io.jvm.uuid.UUID.randomUUID(), payload: Map[UUID, N] = Map[UUID, N]()) extends GCounter[UUID, N] {
 
     override def increment(amt: N)(commutativeMonoid: CommutativeMonoid[N]): GCounter[UUID, N] = {
       //    assert(amt >= 0, s"GCounters can only grow, increment $amt is negative")
