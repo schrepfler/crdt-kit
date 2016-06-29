@@ -10,7 +10,7 @@ trait StateBased[@specialized(Int, Long, Float, Double) N, Z] {
 
   def merge(other: StateBased[N, Z])(implicit order: Order[N], commutativeMonoid: CommutativeMonoid[N]): StateBased[N, Z]
 
-  def value()(implicit commutativeMonoid: CommutativeMonoid[N]): N
+  def value (implicit commutativeMonoid: CommutativeMonoid[N]): N
 
   def payload(): Z
 

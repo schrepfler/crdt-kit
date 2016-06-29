@@ -21,7 +21,7 @@ object GCounterImpl {
       }
     }
 
-    override def value()(implicit commutativeMonoid: CommutativeMonoid[N]): N = commutativeMonoid.combineAll(payload.withDefaultValue[N](commutativeMonoid.empty).valuesIterator)
+    override def value (implicit commutativeMonoid: CommutativeMonoid[N]): N = commutativeMonoid.combineAll(payload.withDefaultValue[N](commutativeMonoid.empty).valuesIterator)
 
     override def merge(other: StateBased[N, Map[java.util.UUID, N]])(implicit order: Order[N], commutativeMonoid: CommutativeMonoid[N]): GCounterImpl[N] = {
       val mergedPayload = (this.payload.keySet ++ other.payload.keySet).map(uuid => (uuid, this.payload.getOrElse(uuid, commutativeMonoid.empty) max other.payload.getOrElse(uuid, commutativeMonoid.empty))).toMap

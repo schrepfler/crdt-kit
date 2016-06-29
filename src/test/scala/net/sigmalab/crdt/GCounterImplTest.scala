@@ -18,7 +18,7 @@ class GCounterImplTest extends FunSuite {
 
 
     val counter123 = counter1.merge(counter2).merge(counter3)
-    assert(0 == counter123.value())
+    assert(0 == counter123.value)
 
     val counterOne = GCounterImpl[Int](0)
     val counterOneInc = counterOne.increment(1)
