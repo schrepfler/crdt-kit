@@ -11,7 +11,7 @@ object GCounterImpl {
   /**
     * Created by schrepfler on 01/05/2016.
     */
-  case class GCounterImpl[@specialized(Int, Long, Float, Double) N](shardId: UUID = io.jvm.uuid.UUID.randomUUID(), payload: Map[UUID, N] = Map[UUID, N]()) extends GCounter[UUID, N] {
+  case class GCounterImpl[@specialized(Int, Long, Float, Double) N](shardId: String = UUID.randomUUID.toString, payload: Map[String, N] = Map[String, N]()) extends GCounter[String, N] {
 
     override def increment(amt: N)(implicit order: Order[N], commutativeMonoid: CommutativeMonoid[N]): GCounterImpl[N] = {
       require(order.gt(amt, commutativeMonoid.empty), s"GCounters can only grow, increment $amt must be greater than neutral element ${commutativeMonoid.empty}")
@@ -23,7 +23,7 @@ object GCounterImpl {
 
     override def value (implicit commutativeMonoid: CommutativeMonoid[N]): N = commutativeMonoid.combineAll(payload.withDefaultValue[N](commutativeMonoid.empty).valuesIterator)
 
-    override def merge(other: StateBased[N, Map[java.util.UUID, N]])(implicit order: Order[N], commutativeMonoid: CommutativeMonoid[N]): GCounterImpl[N] = {
+    override def merge(other: StateBased[N, Map[String, N]])(implicit order: Order[N], commutativeMonoid: CommutativeMonoid[N]): GCounterImpl[N] = {
       val mergedPayload = (this.payload.keySet ++ other.payload.keySet).map(uuid => (uuid, this.payload.getOrElse(uuid, commutativeMonoid.empty) max other.payload.getOrElse(uuid, commutativeMonoid.empty))).toMap
       GCounterImpl(shardId, mergedPayload)
     }
@@ -31,7 +31,7 @@ object GCounterImpl {
   }
 
   def apply[@specialized(Int, Long, Float, Double) N](param: N): GCounterImpl[N] = {
-    val uuid = java.util.UUID.randomUUID()
+    val uuid = UUID.randomUUID.toString
     GCounterImpl(shardId = uuid, payload = Map(uuid -> param))
   }
 
