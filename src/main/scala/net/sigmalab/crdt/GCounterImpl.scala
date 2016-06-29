@@ -4,6 +4,7 @@ import java.util.UUID
 
 import cats.kernel.CommutativeMonoid
 import cats.kernel.Order
+import cats.implicits._
 
 object GCounterImpl {
 
@@ -15,7 +16,7 @@ object GCounterImpl {
     override def increment(amt: N)(implicit commutativeMonoid: CommutativeMonoid[N]): GCounterImpl[N] = {
       //    assert(amt >= 0, s"GCounters can only grow, increment $amt is negative")
       payload.get(shardId) match {
-        case Some(x) => GCounterImpl(shardId, payload.updated(shardId, commutativeMonoid.combine(amt, x)))
+        case Some(x) => GCounterImpl(shardId, payload.updated(shardId, amt |+| x))
         case None => GCounterImpl(shardId, payload.updated(shardId, amt))
       }
     }
