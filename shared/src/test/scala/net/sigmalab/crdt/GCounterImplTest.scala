@@ -2,7 +2,6 @@ package net.sigmalab.crdt
 
 import org.scalatest.FunSuite
 import cats.implicits._
-import cats.kernel._
 
 /**
   * Created by schrepfler on 16/05/2016.
