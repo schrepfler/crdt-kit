@@ -2,7 +2,8 @@ package net.sigmalab.crdt
 
 import java.util.UUID
 
-import algebra.{CommutativeMonoid, Order}
+import cats.kernel.CommutativeMonoid
+import cats.kernel.Order
 
 object GCounterImpl {
 
@@ -11,7 +12,7 @@ object GCounterImpl {
     */
   case class GCounterImpl[@specialized(Int, Long, Float, Double) N](shardId: UUID = io.jvm.uuid.UUID.randomUUID(), payload: Map[UUID, N] = Map[UUID, N]()) extends GCounter[UUID, N] {
 
-    override def increment(amt: N)(commutativeMonoid: CommutativeMonoid[N]): GCounter[UUID, N] = {
+    override def increment(amt: N)(implicit commutativeMonoid: CommutativeMonoid[N]): GCounterImpl[N] = {
       //    assert(amt >= 0, s"GCounters can only grow, increment $amt is negative")
       payload.get(shardId) match {
         case Some(x) => GCounterImpl(shardId, payload.updated(shardId, commutativeMonoid.combine(amt, x)))
@@ -19,10 +20,10 @@ object GCounterImpl {
       }
     }
 
-    override def value()(commutativeMonoid: CommutativeMonoid[N]): N = commutativeMonoid.combineAll(payload.withDefaultValue[N](commutativeMonoid.empty).valuesIterator)
+    override def value()(implicit commutativeMonoid: CommutativeMonoid[N]): N = commutativeMonoid.combineAll(payload.withDefaultValue[N](commutativeMonoid.empty).valuesIterator)
 
-    override def merge(other: StateBased[N, Map[java.util.UUID, N]])(order: Order[N]): StateBased[N, Map[UUID, N]] = {
-      val mergedPayload = (this.payload.keySet ++ other.payload.keySet).map(uuid => (uuid, order.max(this.payload.get(uuid).get, other.payload.get(uuid).get))).toMap
+    override def merge(other: StateBased[N, Map[java.util.UUID, N]])(implicit order: Order[N], commutativeMonoid: CommutativeMonoid[N]): GCounterImpl[N] = {
+      val mergedPayload = (this.payload.keySet ++ other.payload.keySet).map(uuid => (uuid, order.max(this.payload.getOrElse(uuid, commutativeMonoid.empty), other.payload.getOrElse(uuid, commutativeMonoid.empty)))).toMap
       GCounterImpl(shardId, mergedPayload)
     }
 

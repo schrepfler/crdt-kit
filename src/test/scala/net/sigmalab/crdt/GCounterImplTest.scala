@@ -2,6 +2,7 @@ package net.sigmalab.crdt
 
 import org.scalatest.FunSuite
 import cats.implicits._
+import cats.kernel._
 
 /**
   * Created by schrepfler on 16/05/2016.
@@ -26,14 +27,13 @@ class GCounterImplTest extends FunSuite {
     assert(1 == counter123mergedWithcounterOneIncremented.value)
 
     var counterOfThree = GCounterImpl[Int](0)
-    var counterOfThreeGCounter = counterOfThree.increment(1)
-    counterOfThreeGCounter = counterOfThree.increment(1)
-    counterOfThreeGCounter = counterOfThree.increment(1)
+    var counterOfThree3 = counterOfThree.increment(1).increment(1).increment(1)
 
-    assert(3 == counterOfThree.value)
+
+    assert(3 == counterOfThree3.value)
 
     var counterOfFive = GCounterImpl[Int](0)
-    var counterOfFiveGCounter = counterOfFive.increment(5)
+    counterOfFive = counterOfFive.increment(5)
 
     assert(5 == counterOfFive.value)
 
