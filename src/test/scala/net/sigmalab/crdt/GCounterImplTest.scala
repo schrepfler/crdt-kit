@@ -37,6 +37,10 @@ class GCounterImplTest extends FunSuite {
 
     assert(5 == counterOfFive.value)
 
+    intercept[IllegalArgumentException]{
+      counterOfFive.increment(-1)
+    }
+
   }
 
 //  test("Associativity: x ∧ (y ∧ z) = (x ∧ y) ∧ z")

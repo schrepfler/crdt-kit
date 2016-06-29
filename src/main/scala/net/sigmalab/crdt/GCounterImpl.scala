@@ -13,8 +13,8 @@ object GCounterImpl {
     */
   case class GCounterImpl[@specialized(Int, Long, Float, Double) N](shardId: UUID = io.jvm.uuid.UUID.randomUUID(), payload: Map[UUID, N] = Map[UUID, N]()) extends GCounter[UUID, N] {
 
-    override def increment(amt: N)(implicit commutativeMonoid: CommutativeMonoid[N]): GCounterImpl[N] = {
-      //    assert(amt >= 0, s"GCounters can only grow, increment $amt is negative")
+    override def increment(amt: N)(implicit order: Order[N], commutativeMonoid: CommutativeMonoid[N]): GCounterImpl[N] = {
+      require(order.gt(amt, commutativeMonoid.empty), s"GCounters can only grow, increment $amt must be greater than neutral element ${commutativeMonoid.empty}")
       payload.get(shardId) match {
         case Some(x) => GCounterImpl(shardId, payload.updated(shardId, amt |+| x))
         case None => GCounterImpl(shardId, payload.updated(shardId, amt))
