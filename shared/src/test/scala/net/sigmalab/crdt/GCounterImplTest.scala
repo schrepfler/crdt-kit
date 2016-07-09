@@ -1,5 +1,7 @@
 package net.sigmalab.crdt
 
+import java.util.UUID
+
 import org.scalatest.FunSuite
 import cats.implicits._
 
@@ -8,10 +10,12 @@ import cats.implicits._
   */
 class GCounterImplTest extends FunSuite {
 
+  private def randomUUID = UUID.randomUUID.toString
+
   test("testMerge") {
-    val counter1 = GCounterImpl[Int](0)
-    val counter2 = GCounterImpl[Int](0)
-    val counter3 = GCounterImpl[Int](0)
+    val counter1 = GCounterImpl[Int](randomUUID, 0)
+    val counter2 = GCounterImpl[Int](randomUUID, 0)
+    val counter3 = GCounterImpl[Int](randomUUID, 0)
 
     val counter12 = counter1.merge(counter2)
 
@@ -19,19 +23,19 @@ class GCounterImplTest extends FunSuite {
     val counter123 = counter1.merge(counter2).merge(counter3)
     assert(0 == counter123.value)
 
-    val counterOne = GCounterImpl[Int](0)
+    val counterOne = GCounterImpl[Int](randomUUID, 0)
     val counterOneInc = counterOne.increment(1)
 
     val counter123mergedWithcounterOneIncremented = counter123.merge(counterOneInc)
     assert(1 == counter123mergedWithcounterOneIncremented.value)
 
-    var counterOfThree = GCounterImpl[Int](0)
+    var counterOfThree = GCounterImpl[Int](randomUUID, 0)
     var counterOfThree3 = counterOfThree.increment(1).increment(1).increment(1)
 
 
     assert(3 == counterOfThree3.value)
 
-    var counterOfFive = GCounterImpl[Int](0)
+    var counterOfFive = GCounterImpl[Int](randomUUID, 0)
     counterOfFive = counterOfFive.increment(5)
 
     assert(5 == counterOfFive.value)

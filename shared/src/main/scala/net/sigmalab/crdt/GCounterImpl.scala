@@ -1,7 +1,5 @@
 package net.sigmalab.crdt
 
-import java.util.UUID
-
 import cats.kernel.CommutativeMonoid
 import cats.kernel.Order
 import cats.implicits._
@@ -11,7 +9,7 @@ object GCounterImpl {
   /**
     * Created by schrepfler on 01/05/2016.
     */
-  case class GCounterImpl[@specialized(Int, Long, Float, Double) N](shardId: String = UUID.randomUUID.toString, payload: Map[String, N] = Map[String, N]()) extends GCounter[String, N] {
+  case class GCounterImpl[@specialized(Int, Long, Float, Double) N](shardId: String, payload: Map[String, N] = Map[String, N]()) extends GCounter[String, N] {
 
     override def increment(amt: N)(implicit order: Order[N], commutativeMonoid: CommutativeMonoid[N]): GCounterImpl[N] = {
       require(order.gt(amt, commutativeMonoid.empty), s"GCounters can only grow, increment $amt must be greater than neutral element ${commutativeMonoid.empty}")
@@ -30,9 +28,8 @@ object GCounterImpl {
 
   }
 
-  def apply[@specialized(Int, Long, Float, Double) N](param: N): GCounterImpl[N] = {
-    val uuid = UUID.randomUUID.toString
-    GCounterImpl(shardId = uuid, payload = Map(uuid -> param))
+  def apply[@specialized(Int, Long, Float, Double) N](id: String, param: N): GCounterImpl[N] = {
+    GCounterImpl(shardId = id, payload = Map(id -> param))
   }
 
 }
