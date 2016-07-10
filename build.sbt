@@ -28,7 +28,7 @@ lazy val crdtKit = crossProject.in(file(".")).
   jsSettings(
     jsEnv := NodeJSEnv().value,
     libraryDependencies ++= Seq(
-      "org.typelevel" %%% "cats" % "0.6.0"
+      "org.typelevel" %%% "cats-core" % "0.6.0"
     )
   )
 
