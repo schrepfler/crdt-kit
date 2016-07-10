@@ -19,8 +19,7 @@ lazy val crdtKit = crossProject.in(file(".")).
       "io.jvm.uuid" %% "scala-uuid" % "0.2.1",
       "org.scalatest" %% "scalatest" % "2.2.6" % "test",
       "org.specs2" %% "specs2-core" % "3.8.2" % "test",
-      "org.spire-math" %% "algebra" % "0.4.2",
-      "org.typelevel" %% "cats" % "0.6.0"
+      "org.typelevel" %% "cats-core" % "0.6.0"
     )
   ).
   jvmSettings(
