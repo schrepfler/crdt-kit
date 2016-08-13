@@ -33,5 +33,8 @@ object CrdtConsole extends App {
     val counter12340 = counter1234.merge(GCounterImpl[Int](randomUUID, 0))
     println(counter12340)
     println(counter12340.value)
+
+    val counter12340incdByZero = counter12340.increment(0)
+    println(counter12340incdByZero.value)
   }
 }
