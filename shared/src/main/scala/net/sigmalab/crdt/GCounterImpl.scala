@@ -1,6 +1,6 @@
 package net.sigmalab.crdt
 
-import cats.kernel.{CommutativeMonoid, Order}
+import cats.kernel.{ Monoid, Order}
 import cats.implicits._
 
 object GCounterImpl {
@@ -8,9 +8,9 @@ object GCounterImpl {
   /**
     * Created by schrepfler on 01/05/2016.
     */
-  case class GCounterImpl[N: CommutativeMonoid : Order](shardId: String, payload: Map[String, N] = Map[String, N]()) extends GCounter[String, N] {
+  case class GCounterImpl[N: Monoid : Order](shardId: String, payload: Map[String, N] = Map[String, N]()) extends GCounter[String, N] {
 
-    val monoid = implicitly[CommutativeMonoid[N]]
+    val monoid = implicitly[Monoid[N]]
     val order = implicitly[Order[N]]
 
     override def increment(amt: N): GCounterImpl[N] = {
@@ -30,7 +30,7 @@ object GCounterImpl {
 
   }
 
-  def apply[N: CommutativeMonoid : Order](id: String, param: N): GCounterImpl[N] = {
+  def apply[N: Monoid : Order](id: String, param: N): GCounterImpl[N] = {
     GCounterImpl(shardId = id, payload = Map(id -> param))
   }
 
