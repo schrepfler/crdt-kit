@@ -4,8 +4,8 @@ import net.sigmalab.crdt.GCounterImpl
 import cats.implicits._
 
 /**
-  * Created by ssrepfler on 29/06/16.
-  */
+ * Created by ssrepfler on 29/06/16.
+ */
 object CrdtConsole extends App {
 
   private def randomUUID = UUID.randomUUID.toString

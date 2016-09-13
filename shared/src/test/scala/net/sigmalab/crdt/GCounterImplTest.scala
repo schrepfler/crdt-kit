@@ -6,8 +6,8 @@ import org.scalatest.FunSuite
 import cats.implicits._
 
 /**
-  * Created by schrepfler on 16/05/2016.
-  */
+ * Created by schrepfler on 16/05/2016.
+ */
 class GCounterImplTest extends FunSuite {
 
   private def randomUUID = UUID.randomUUID.toString
@@ -18,7 +18,6 @@ class GCounterImplTest extends FunSuite {
     val counter3 = GCounterImpl[Int](randomUUID, 0)
 
     val counter12 = counter1.merge(counter2)
-
 
     val counter123 = counter1.merge(counter2).merge(counter3)
     assert(0 == counter123.value)
@@ -32,7 +31,6 @@ class GCounterImplTest extends FunSuite {
     var counterOfThree = GCounterImpl[Int](randomUUID, 0)
     var counterOfThree3 = counterOfThree.increment(1).increment(1).increment(1)
 
-
     assert(3 == counterOfThree3.value)
 
     var counterOfFive = GCounterImpl[Int](randomUUID, 0)
@@ -40,20 +38,31 @@ class GCounterImplTest extends FunSuite {
 
     assert(5 == counterOfFive.value)
 
-    intercept[IllegalArgumentException]{
+    intercept[IllegalArgumentException] {
       counterOfFive.increment(-1)
     }
 
+    val counterA = GCounterImpl[Int]("a", 10)
+    val counterB = GCounterImpl[Int]("b", 21)
+
+    val mergedAB = counterA.merge(counterB)
+    println(mergedAB)
+    val counterASecundum = GCounterImpl[Int]("a", 12)
+    println(counterASecundum)
+
+    val mergedAASecundumB = mergedAB.merge(counterASecundum)
+    println(mergedAASecundumB)
+
   }
 
-//  test("Associativity: x ∧ (y ∧ z) = (x ∧ y) ∧ z")
-//
-//  test("Commutativity: x ∧ y = y ∧ x") {
-//
-//  }
-//
-//  test("Idempotency: x ∧ x = x") {
-//
-//  }
+  //  test("Associativity: x ∧ (y ∧ z) = (x ∧ y) ∧ z")
+  //
+  //  test("Commutativity: x ∧ y = y ∧ x") {
+  //
+  //  }
+  //
+  //  test("Idempotency: x ∧ x = x") {
+  //
+  //  }
 
 }

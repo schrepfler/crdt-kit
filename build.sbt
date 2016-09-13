@@ -17,9 +17,9 @@ lazy val crdtKit = crossProject.in(file(".")).
     publishLocal := {},
     libraryDependencies ++= Seq(
       "io.jvm.uuid" %% "scala-uuid" % "0.2.1",
-      "org.scalatest" %% "scalatest" % "2.2.6" % "test",
-      "org.specs2" %% "specs2-core" % "3.8.4" % "test",
-      "org.typelevel" %% "cats-core" % "0.6.1"
+      "org.scalatest" %% "scalatest" % "3.0.0" % "test",
+      "org.specs2" %% "specs2-core" % "3.8.5" % "test",
+      "org.typelevel" %% "cats-core" % "0.7.2"
     )
   ).
   jvmSettings(
@@ -28,7 +28,7 @@ lazy val crdtKit = crossProject.in(file(".")).
   jsSettings(
     jsEnv := NodeJSEnv().value,
     libraryDependencies ++= Seq(
-      "org.typelevel" %%% "cats-core" % "0.6.1"
+      "org.typelevel" %%% "cats-core" % "0.7.2"
     )
   )
 

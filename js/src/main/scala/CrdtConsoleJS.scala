@@ -6,8 +6,8 @@ import cats.implicits._
 import scala.scalajs.js.JSApp
 
 /**
-  * Created by ssrepfler on 29/06/16.
-  */
+ * Created by ssrepfler on 29/06/16.
+ */
 object CrdtConsoleJS extends JSApp {
 
   private def randomUUID = UUID.randomUUID.toString
