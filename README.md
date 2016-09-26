@@ -7,5 +7,5 @@ Currently implementing
 
 References and future explorations:
  - A Conflict-Free Replicated JSON Datatype - Martin Kleppmann, Alastair R. Beresford http://arxiv.org/abs/1608.03960
- - A comprehensive study of Convergent and Commutative
-Replicated Data Types - Marc Shapiro, Nuno Pregui¸ca, Carlos Baquero, Marek Zawirski http://hal.upmc.fr/inria-00555588/document
+ - Scala based implementation of Keppmann/Alastair's JSON Datatype https://github.com/fthomas/crjdt 
+ - A comprehensive study of Convergent and Commutative Replicated Data Types - Marc Shapiro, Nuno Pregui¸ca, Carlos Baquero, Marek Zawirski http://hal.upmc.fr/inria-00555588/document
