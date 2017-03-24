@@ -1,5 +1,6 @@
 name := "CRDT Kit"
 
+val scala212 = "2.12.1"
 val scala211 = "2.11.8"
 
 lazy val root = project.in(file(".")).
@@ -9,17 +10,17 @@ lazy val crdtKit = crossProject.in(file(".")).
   settings(
     name := "crdt-kit",
     version := "1.0",
-    scalaVersion := scala211,
+    scalaVersion := scala212,
     organization := "net.sigmalab",
     licenses := Seq("MIT" -> url("https://opensource.org/licenses/MIT")),
     homepage := Some(url("https://github.com/schrepfler/crdt-kit")),
     publish := {},
     publishLocal := {},
     libraryDependencies ++= Seq(
-      "io.jvm.uuid" %% "scala-uuid" % "0.2.1",
-      "org.scalatest" %% "scalatest" % "3.0.0" % "test",
-      "org.specs2" %% "specs2-core" % "3.8.5" % "test",
-      "org.typelevel" %% "cats-core" % "0.7.2"
+      "io.jvm.uuid" %% "scala-uuid" % "0.2.2",
+      "org.scalatest" %% "scalatest" % "3.0.1" % "test",
+      "org.specs2" %% "specs2-core" % "3.8.9" % "test",
+      "org.typelevel" %% "cats-core" % "0.9.0"
     )
   ).
   jvmSettings(
@@ -28,7 +29,7 @@ lazy val crdtKit = crossProject.in(file(".")).
   jsSettings(
     jsEnv := NodeJSEnv().value,
     libraryDependencies ++= Seq(
-      "org.typelevel" %%% "cats-core" % "0.7.2"
+      "org.typelevel" %%% "cats-core" % "0.9.0"
     )
   )
 
@@ -37,4 +38,3 @@ lazy val crdtKitJS = crdtKit.js
 
 // reactivate if needing to check which compiler flag is needed
 //scalacOptions in ThisBuild ++= Seq("-feature")
-
