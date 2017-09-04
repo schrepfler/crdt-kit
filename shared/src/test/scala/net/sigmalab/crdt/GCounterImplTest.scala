@@ -28,7 +28,7 @@ class GCounterImplTest extends FunSuite {
     val counter123mergedWithcounterOneIncremented = counter123.merge(counterOneInc)
     assert(1 == counter123mergedWithcounterOneIncremented.value)
 
-    var counterOfThree = GCounterImpl[Int](randomUUID, 0)
+    var counterOfThree = GCounterImpl(randomUUID, 0)
     var counterOfThree3 = counterOfThree.increment(1).increment(1).increment(1)
 
     assert(3 == counterOfThree3.value)

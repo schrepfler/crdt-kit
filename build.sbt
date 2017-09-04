@@ -1,7 +1,7 @@
 name := "CRDT Kit"
 
-val scala212 = "2.12.1"
-val scala211 = "2.11.8"
+val scala212 = "2.12.3"
+val scala211 = "2.11.11"
 
 lazy val root = project.in(file(".")).
   aggregate(crdtKitJVM, crdtKitJS)
@@ -17,19 +17,20 @@ lazy val crdtKit = crossProject.in(file(".")).
     publish := {},
     publishLocal := {},
     libraryDependencies ++= Seq(
-      "io.jvm.uuid" %% "scala-uuid" % "0.2.2",
-      "org.scalatest" %% "scalatest" % "3.0.1" % "test",
-      "org.specs2" %% "specs2-core" % "3.8.9" % "test",
-      "org.typelevel" %% "cats-core" % "0.9.0"
-    )
+      "io.jvm.uuid" %% "scala-uuid" % "0.2.3",
+      "org.scalatest" %% "scalatest" % "3.0.4" % "test",
+      "org.specs2" %% "specs2-core" % "3.9.5" % "test",
+      "org.typelevel" %% "cats-core" % "1.0.0-MF"
+    ),
+//    ensimeIgnoreScalaMismatch in ThisBuild := true
   ).
   jvmSettings(
     // Add JVM-specific settings here
   ).
   jsSettings(
-    jsEnv := NodeJSEnv().value,
+    jsEnv := new org.scalajs.jsenv.nodejs.NodeJSEnv(),
     libraryDependencies ++= Seq(
-      "org.typelevel" %%% "cats-core" % "0.9.0"
+      "org.typelevel" %%% "cats-core" % "1.0.0-MF"
     )
   )
 
