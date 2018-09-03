@@ -15,3 +15,4 @@ References and future explorations:
  - A comprehensive study of Convergent and Commutative Replicated Data Types - Marc Shapiro, Nuno Pregui¸ca, Carlos Baquero, Marek Zawirski http://hal.upmc.fr/inria-00555588/document
  - Practical Data Synchronization Using CRDTs - https://www.infoq.com/presentations/data-synchronization-crdt
  - Lasp - a programming model for synchronization-free computations. https://github.com/lasp-lang/lasp
+ - OpSets: Sequential Specifications for Replicated Datatypes (Extended Version) https://arxiv.org/abs/1805.04263
