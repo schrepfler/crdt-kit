@@ -19,7 +19,7 @@ lazy val crdtKit = crossProject.in(file(".")).
     libraryDependencies ++= Seq(
       "io.jvm.uuid" %% "scala-uuid" % "0.2.4",
       "org.scalatest" %% "scalatest" % "3.0.5" % "test",
-      "org.specs2" %% "specs2-core" % "3.10.0" % "test",
+      "org.specs2" %% "specs2-core" % "4.3.4" % "test",
       "org.typelevel" %% "cats-core" % "1.0.1"
     ),
 //    ensimeIgnoreScalaMismatch in ThisBuild := true
