@@ -16,4 +16,5 @@ References and future explorations:
  - Practical Data Synchronization Using CRDTs - https://www.infoq.com/presentations/data-synchronization-crdt
  - Lasp - a programming model for synchronization-free computations. https://github.com/lasp-lang/lasp
  - OpSets: Sequential Specifications for Replicated Datatypes (Extended Version) https://arxiv.org/abs/1805.04263
- - Delta State Replicated Data Types - Paulo S ́ergio Almeida, Ali Shoker, and Carlos Baquero https://arxiv.org/pdf/1603.01529.pdf
+ - Delta State Replicated Data Types - Paulo Sergio Almeida, Ali Shoker, and Carlos Baquero https://arxiv.org/pdf/1603.01529.pdf (referenced in https://github.com/ipfs/research-CRDT/issues/31)
+ - Everything listed here: https://github.com/ipfs/research-CRDT
