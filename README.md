@@ -7,7 +7,7 @@ Currently implementing
 
 References and future explorations:
  - A Conflict-Free Replicated JSON Datatype - Martin Kleppmann, Alastair R. Beresford http://arxiv.org/abs/1608.03960
- ..* A Conflict-Free Replicated JSON Datatype in Scala https://github.com/fthomas/crjdt
+ - A Conflict-Free Replicated JSON Datatype in Scala https://github.com/fthomas/crjdt
  - Akka CRDT https://github.com/jboner/akka-crdt
  - Akka Distributed Data http://doc.akka.io/docs/akka/current/scala/distributed-data.html
  - Scala based implementation of Keppmann/Alastair's JSON Datatype https://github.com/fthomas/crjdt
@@ -18,3 +18,5 @@ References and future explorations:
  - OpSets: Sequential Specifications for Replicated Datatypes (Extended Version) https://arxiv.org/abs/1805.04263
  - Delta State Replicated Data Types - Paulo Sergio Almeida, Ali Shoker, and Carlos Baquero https://arxiv.org/pdf/1603.01529.pdf (referenced in https://github.com/ipfs/research-CRDT/issues/31)
  - Everything listed here: https://github.com/ipfs/research-CRDT
+ - Advanced Conflict-free Replicated DataTypes https://github.com/alishoker/preprints/blob/master/Advanced%20Conflict-free%20Replicated%20DataTypes.pdf
+ - Replication-Aware Linearizability PLDI 2019 https://dl.acm.org/citation.cfm?id=3314617
