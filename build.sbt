@@ -20,7 +20,7 @@ lazy val crdtKit = crossProject.in(file(".")).
       "io.jvm.uuid" %% "scala-uuid" % "0.3.1",
       "org.scalatest" %% "scalatest" % "3.0.8" % "test",
       "org.specs2" %% "specs2-core" % "4.3.5" % "test",
-      "org.typelevel" %% "cats-core" % "1.6.1"
+      "org.typelevel" %% "cats-core" % "2.0.0"
     ),
 //    ensimeIgnoreScalaMismatch in ThisBuild := true
   ).
@@ -30,7 +30,7 @@ lazy val crdtKit = crossProject.in(file(".")).
   jsSettings(
     jsEnv := new org.scalajs.jsenv.nodejs.NodeJSEnv(),
     libraryDependencies ++= Seq(
-      "org.typelevel" %%% "cats-core" % "1.6.1"
+      "org.typelevel" %%% "cats-core" % "2.0.0"
     )
   )
 
