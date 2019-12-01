@@ -2,13 +2,13 @@ package net.sigmalab.crdt
 
 import java.util.UUID
 
-import org.scalatest.FunSuite
 import cats.implicits._
+import org.scalatest.funsuite.AnyFunSuite
 
 /**
  * Created by schrepfler on 16/05/2016.
  */
-class GCounterImplTest extends FunSuite {
+class GCounterImplTest extends AnyFunSuite {
 
   private def randomUUID = UUID.randomUUID.toString
 

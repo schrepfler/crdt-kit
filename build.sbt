@@ -18,7 +18,7 @@ lazy val crdtKit = crossProject.in(file(".")).
     publishLocal := {},
     libraryDependencies ++= Seq(
       "io.jvm.uuid" %% "scala-uuid" % "0.3.1",
-      "org.scalatest" %% "scalatest" % "3.0.8" % "test",
+      "org.scalatest" %% "scalatest" % "3.1.0" % "test",
       "org.specs2" %% "specs2-core" % "4.3.5" % "test",
       "org.typelevel" %% "cats-core" % "2.0.0"
     ),
