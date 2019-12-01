@@ -1,5 +1,5 @@
 logLevel := Level.Warn
-addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.3.4")
+addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.5.0")
 addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.31")
 //addSbtPlugin("com.github.lionelfleury" % "sbt-scalajs-callgraph" % "0.1.2")
 //addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.8.2")
