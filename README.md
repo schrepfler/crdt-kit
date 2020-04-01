@@ -20,3 +20,4 @@ References and future explorations:
  - Everything listed here: https://github.com/ipfs/research-CRDT
  - Advanced Conflict-free Replicated DataTypes https://github.com/alishoker/preprints/blob/master/Advanced%20Conflict-free%20Replicated%20DataTypes.pdf
  - Replication-Aware Linearizability PLDI 2019 https://dl.acm.org/citation.cfm?id=3314617
+ - A highly-available move operation for replicated trees https://martin.kleppmann.com/papers/move-op.pdf
