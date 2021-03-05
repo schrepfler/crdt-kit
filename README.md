@@ -22,3 +22,4 @@ References and future explorations:
  - Replication-Aware Linearizability PLDI 2019 https://dl.acm.org/citation.cfm?id=3314617
  - A highly-available move operation for replicated trees https://martin.kleppmann.com/papers/move-op.pdf
  - Moving Elements in List CRDTs https://martin.kleppmann.com/papers/list-move-papoc20.pdf
+ - https://concordant.io/
