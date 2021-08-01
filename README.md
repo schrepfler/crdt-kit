@@ -23,3 +23,4 @@ References and future explorations:
  - A highly-available move operation for replicated trees https://martin.kleppmann.com/papers/move-op.pdf
  - Moving Elements in List CRDTs https://martin.kleppmann.com/papers/list-move-papoc20.pdf
  - https://concordant.io/
+ - CRDTs go brrr https://josephg.com/blog/crdts-go-brrr/
