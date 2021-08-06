@@ -24,3 +24,4 @@ References and future explorations:
  - Moving Elements in List CRDTs https://martin.kleppmann.com/papers/list-move-papoc20.pdf
  - https://concordant.io/
  - CRDTs go brrr https://josephg.com/blog/crdts-go-brrr/
+ - Mergeable Replicated Data Types https://gowthamk.github.io/docs/mrdt.pdf
