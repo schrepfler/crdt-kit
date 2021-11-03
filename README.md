@@ -26,3 +26,4 @@ References and future explorations:
  - CRDTs go brrr https://josephg.com/blog/crdts-go-brrr/
  - Mergeable Replicated Data Types https://gowthamk.github.io/docs/mrdt.pdf
  - CRDTs in Differential Dataflow https://www.youtube.com/watch?v=qH66sF3kM8E
+ - Merkle-CRDTs, Merkle-DAGs meet CRDTs https://arxiv.org/pdf/2004.00107.pdf
