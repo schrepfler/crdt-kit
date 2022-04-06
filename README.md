@@ -28,3 +28,4 @@ References and future explorations:
  - CRDTs in Differential Dataflow https://www.youtube.com/watch?v=qH66sF3kM8E
  - Merkle-CRDTs, Merkle-DAGs meet CRDTs https://arxiv.org/pdf/2004.00107.pdf
  - 5000x faster CRDTs: An Adventure in Optimization https://josephg.com/blog/crdts-go-brrr/
+ - Testing CRDTs in Rust, From Theory to Practice https://www.ditto.live/blog/testing-crdts-in-rust-from-theory-to-practice
