@@ -29,3 +29,4 @@ References and future explorations:
  - Merkle-CRDTs, Merkle-DAGs meet CRDTs https://arxiv.org/pdf/2004.00107.pdf
  - 5000x faster CRDTs: An Adventure in Optimization https://josephg.com/blog/crdts-go-brrr/
  - Testing CRDTs in Rust, From Theory to Practice https://www.ditto.live/blog/testing-crdts-in-rust-from-theory-to-practice
+ - https://github.com/ljwagerfield/crdt
