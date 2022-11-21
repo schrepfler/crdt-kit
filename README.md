@@ -30,3 +30,4 @@ References and future explorations:
  - 5000x faster CRDTs: An Adventure in Optimization https://josephg.com/blog/crdts-go-brrr/
  - Testing CRDTs in Rust, From Theory to Practice https://www.ditto.live/blog/testing-crdts-in-rust-from-theory-to-practice
  - https://github.com/ljwagerfield/crdt
+ - https://jzhao.xyz/posts/bft-json-crdt/
