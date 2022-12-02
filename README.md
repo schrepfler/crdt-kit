@@ -31,3 +31,4 @@ References and future explorations:
  - Testing CRDTs in Rust, From Theory to Practice https://www.ditto.live/blog/testing-crdts-in-rust-from-theory-to-practice
  - https://github.com/ljwagerfield/crdt
  - https://jzhao.xyz/posts/bft-json-crdt/
+ - How CRDTs make multiplayer text editing part of Zed's DNA https://zed.dev/blog/crdts
